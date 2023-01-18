@@ -6,3 +6,6 @@ services:
     build: .
     ports:
       - '${APP_PORT:-8000}:3000'
+    environment:
+      NEXT_PUBLIC_CONTENT_URL: "${CONTENT_URL:-https://strapi.allesimrudel.de/}"
+      NEXT_PUBLIC_BACKEND_URL: "${BACKEND_URL:-https://backend.allesimrudel.de/}"
