@@ -3,7 +3,12 @@ version: '3.1'
 services:
   app:
     image: next-app:latest
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_CONTENT_URL: "${CONTENT_URL:-https://strapi.allesimrudel.de/}"
+        NEXT_PUBLIC_BACKEND_URL: "${BACKEND_URL:-https://backend.allesimrudel.de/}"
     ports:
       - '${APP_PORT:-8000}:3000'
     environment:
